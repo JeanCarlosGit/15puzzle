@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+
+
+$(document).ready(function(){
+    $("button").click(function(){
+        $.getJSON("https://api.myjson.com/bins/od8wt", function(result){
+            $.each(result, function(i, field){
+                $("#pai").append(
+                	"<div>" + field[0][1][1][1]+"</div> ");
+                $("#pai").after(
+                	"<div>" + field[0][1][1][2]+"</div> ");
+      
+            
+            });
+        });
+    });
+});
+</script>
+<style>
+
+div:not(first-child) {
+	border: solid 1px black;
+    padding: 25px 18px; 
+    margin: 0 200px 0 200px;
+    text-align: center;
+}
+</style>
+</head>
+<body>
+
+	<button >Imprime</button>
+
+<p></p>
+<div id="pai" style="margin-top: 50px"></div>
+
+
+</body>
+</html>
